@@ -1,0 +1,27 @@
+.search {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 400px;
+  margin: 5rem 0 3rem 5rem;
+  box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+  padding: 0 2rem;
+  background: var(--clr-card-background);
+  border-radius: 0.5rem;
+}
+
+.search input {
+  border: none;
+  outline: none;
+  font-size: 1.8rem;
+  padding: 2rem 0 2rem 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  background: var(--clr-card-background);
+  color: var(--clr-input-text);
+}
+
+.search input::placeholder {
+  font-size: 1.5rem;
+  color: rgb(211, 208, 208);
+}

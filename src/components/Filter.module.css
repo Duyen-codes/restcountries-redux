@@ -1,0 +1,13 @@
+/* FILTER  */
+
+.select {
+  background: var(--clr-card-background);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  color: var(--clr-text);
+  border: none;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  font-family: inherit;
+  width: 200px;
+  margin-left: 5rem;
+}
