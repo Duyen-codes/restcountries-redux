@@ -6,8 +6,6 @@ import Home from "./components/Home";
 import Nav from "./components/Nav";
 import { useState } from "react";
 
-import { Container, AppBar, Toolbar, Button } from "@mui/material";
-
 function App() {
   const [darkMode, setDarkMode] = useState(true);
 

@@ -9,7 +9,7 @@ const Nav = () => {
       <img src={logoIcon} alt="" />
       <ul>
         <li>
-          <Link to="/home">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
           <Link to="/countries">Countries</Link>

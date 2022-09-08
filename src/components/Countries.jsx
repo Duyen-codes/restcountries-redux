@@ -13,6 +13,7 @@ const Countries = () => {
   const dispatch = useDispatch();
 
   const isLoading = useSelector((state) => state.isLoading);
+  const countries = useSelector((state) => state.countries);
 
   useEffect(() => {
     dispatch(initializeCountries()).then(() => dispatch(setIsLoading(false)));
@@ -28,10 +29,8 @@ const Countries = () => {
   //         })
   //   );
 
-  const countries = useSelector((state) => {
-    if (state.search === "" && state.filter === "") {
-      return state.countries;
-    } else if (state.search !== "") {
+  const countriesToShow = useSelector((state) => {
+    if (state.search.length > 0) {
       return state.countries.filter((country) => {
         return country.name.common
           .toLowerCase()
@@ -39,11 +38,10 @@ const Countries = () => {
       });
     } else if (state.filter === "" || state.filter === "all") {
       return state.countries;
-    } else {
-      return state.countries.filter((country) =>
-        country.continents[0].toLowerCase().includes(state.filter.toLowerCase())
-      );
     }
+    return state.countries.filter((country) =>
+      country.continents[0].toLowerCase().includes(state.filter.toLowerCase())
+    );
   });
 
   if (isLoading) {
@@ -54,7 +52,7 @@ const Countries = () => {
       <Search />
       <Filter />
       <div className="cards">
-        {countries.map((country, index) => (
+        {countriesToShow.map((country, index) => (
           <Link
             className="card"
             key={index}
