@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Container } from "@mui/material";
 
 const api_key = process.env.REACT_APP_API_KEY;
 
@@ -19,9 +18,7 @@ const Country = () => {
 
   const lat = country?.latlng[0];
   const lon = country?.latlng[1];
-  console.log("LAT: ", lat);
-  console.log("LON: ", lon);
-  console.log("COUNTRY: ", country);
+
   useEffect(() => {
     axios
       .get(
@@ -45,7 +42,7 @@ const Country = () => {
     setCountry(borderCountry);
   };
   return (
-    <div>
+    <div className="country">
       <button onClick={backToPrevious} className="btn back-btn">
         <i className="fa-solid fa-arrow-left"></i>Back
       </button>

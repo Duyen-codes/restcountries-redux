@@ -3,9 +3,15 @@
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 90vh;
-  border: 3px solid orange;
-  margin-top: 6rem;
+  margin-top: 5rem;
   padding: 5rem;
+  text-align: center;
+  letter-spacing: 2.7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 5rem;
+  align-items: center;
 }
 
 /*  Media query for mobile devices  */
@@ -21,4 +27,46 @@
   .home {
     background-image: url("../assets/home/background-home-tablet.jpg");
   }
+}
+
+.home h1 {
+  text-transform: uppercase;
+  padding: 3rem 0;
+  font-size: 4rem;
+}
+
+.home span {
+  display: block;
+  font-size: 7rem;
+  text-transform: uppercase;
+}
+
+.home p {
+  flex: 1;
+}
+
+.home a {
+  display: inline-block;
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+  background: white;
+  color: black;
+  display: grid;
+  place-items: center;
+  text-transform: uppercase;
+  transition: all 0.5s ease-in-out;
+}
+
+.home a:hover {
+  cursor: pointer;
+  background-image: linear-gradient(
+    to right,
+    #667eea,
+    #764ba2,
+    #6b8dd6,
+    #8e37d7
+  );
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+  scale: 1.5;
 }

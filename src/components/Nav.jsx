@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import classes from "./Nav.module.css";
+import logoIcon from "../assets/shared/logo.svg";
 
 const Nav = () => {
   return (
     <nav className={classes.nav}>
-      <img src="../assets/shared/logo.svg" alt="" />
-
+      <img src={logoIcon} alt="" />
       <ul>
         <li>
           <Link to="/home">Home</Link>

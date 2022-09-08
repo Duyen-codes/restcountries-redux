@@ -14,5 +14,4 @@ const store = configureStore({
   },
 });
 
-console.log(store.getState());
 export default store;
