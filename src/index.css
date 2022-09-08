@@ -13,7 +13,20 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
-  line-height: 1.7;
+  line-height: 1.5;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 :root {
@@ -27,6 +40,7 @@ body {
   font-size: 1.6rem;
   background: var(--clr-body-background);
   color: var(--clr-text);
+  /* min-height: 100vh; */
 }
 
 .light {
@@ -39,10 +53,6 @@ body {
 a {
   text-decoration: none;
   color: var(--clr-text);
-}
-
-img {
-  max-width: 100%;
 }
 
 .app-body {

@@ -6,8 +6,8 @@ import { setIsLoading } from "../reducers/loadingReducer";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import Filter from "./Filter";
-import { Card, CardContent, CardMedia, Grid } from "@mui/material";
 import LoadingSpinner from "./LoadingSpinner";
+import classes from "./Countries.module.css";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const Countries = () => {
     return <LoadingSpinner />;
   }
   return (
-    <div>
+    <div className={classes.countries}>
       <Search />
       <Filter />
       <div className="cards">

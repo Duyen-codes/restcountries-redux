@@ -1,0 +1,24 @@
+.home {
+  background-image: url("../assets/home/background-home-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 90vh;
+  border: 3px solid orange;
+  margin-top: 6rem;
+  padding: 5rem;
+}
+
+/*  Media query for mobile devices  */
+@media (max-width: 480px) {
+  .home {
+    background-image: url("../assets/home/background-home-mobile.jpg");
+  }
+}
+
+/* Media query for tablets, ipad  */
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .home {
+    background-image: url("../assets/home/background-home-tablet.jpg");
+  }
+}

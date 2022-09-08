@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 import Countries from "./components/Countries";
 import Country from "./components/Country";
+import Home from "./components/Home";
+import Nav from "./components/Nav";
 import { useState } from "react";
 
 import { Container, AppBar, Toolbar, Button } from "@mui/material";
@@ -14,18 +16,20 @@ function App() {
   };
   return (
     <Router>
-      <AppBar position="static">
+      {/* <AppBar position="static">
         <Toolbar>
           <Button color="inherit">
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </Button>
           <Button color="inherit">
             <Link to="/countries">Countries</Link>
           </Button>
         </Toolbar>
-      </AppBar>
+      </AppBar> */}
+      <Nav />
       <Routes>
         <Route path="/countries" element={<Countries />} darkMode={darkMode} />
+        <Route path="/home" element={<Home />} />
         <Route
           path="/countries/:id"
           element={<Country />}
