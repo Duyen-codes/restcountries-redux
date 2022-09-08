@@ -251,7 +251,7 @@ button {
 
   .border-country-container {
     display: flex;
-    justify-content: space-between;
+    gap: 3rem;
     align-items: center;
   }
   /* add this so when 1 country is found, it does not spread  */
