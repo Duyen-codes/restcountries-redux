@@ -27,3 +27,7 @@ Live demo: [https://restcountries-redux.vercel.app/ ](https://restcountries-redu
 - Redux
 - CSS modules
 - Responsive design
+
+## Useful Resources
+
+- Various ways to deploy React app ![Various ways to deploy React app](https://blog.logrocket.com/8-ways-deploy-react-app-free/)
