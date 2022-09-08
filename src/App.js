@@ -29,7 +29,7 @@ function App() {
       <Nav />
       <Routes>
         <Route path="/countries" element={<Countries />} darkMode={darkMode} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/countries/:id"
           element={<Country />}
