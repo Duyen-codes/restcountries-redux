@@ -16,11 +16,6 @@ Live demo: [https://restcountries-redux.vercel.app/ ](https://restcountries-redu
 - See weather info about a single country
 - Click through to the border countries on the detail page
 
-### To-do features
-
-- Toggle the color scheme between light and dark mode
-- Click to top button
-
 ## Built with
 
 - React hooks

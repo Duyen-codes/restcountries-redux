@@ -46,7 +46,6 @@ body {
   font-size: 1.6rem;
   background: var(--clr-body-background);
   color: var(--clr-text);
-  /* min-height: 100vh; */
 }
 
 .light {
@@ -59,6 +58,10 @@ body {
 a {
   text-decoration: none;
   color: var(--clr-text);
+}
+
+a:hover {
+  text-decoration: underline;
 }
 
 .app-body {
@@ -91,7 +94,6 @@ button {
   gap: 3rem;
   padding-bottom: 4rem;
   color: var(--clr-text);
-  cursor: pointer;
   transition: all 0.5s ease;
 }
 

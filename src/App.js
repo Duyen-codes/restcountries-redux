@@ -4,35 +4,20 @@ import Countries from "./components/Countries";
 import Country from "./components/Country";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
-import { useState } from "react";
+import Favorites from "./components/Favorites";
+import { useSelector } from "react-redux";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const favorites = useSelector((state) => state.favorites);
 
-  const switchMode = () => {
-    setDarkMode((prevState) => !prevState);
-  };
   return (
     <Router>
-      {/* <AppBar position="static">
-        <Toolbar>
-          <Button color="inherit">
-            <Link to="/home">Home</Link>
-          </Button>
-          <Button color="inherit">
-            <Link to="/countries">Countries</Link>
-          </Button>
-        </Toolbar>
-      </AppBar> */}
-      <Nav />
+      <Nav favorites={favorites} />
       <Routes>
-        <Route path="/countries" element={<Countries />} darkMode={darkMode} />
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/countries/:id"
-          element={<Country />}
-          darkMode={darkMode}
-        />
+        <Route index element={<Home />} />
+        <Route path="/countries" element={<Countries />} />
+        <Route path="/countries/:id" element={<Country />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </Router>
   );

@@ -9,25 +9,25 @@ import Filter from "./Filter";
 import LoadingSpinner from "./LoadingSpinner";
 import classes from "./Countries.module.css";
 
+import {
+  setFavorites,
+  appendFavorite,
+  removeFavorite,
+} from "../reducers/favoritesReducer";
+
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+
 const Countries = () => {
   const dispatch = useDispatch();
 
   const isLoading = useSelector((state) => state.isLoading);
   const countries = useSelector((state) => state.countries);
-
+  const favorites = useSelector((state) => state.favorites);
   useEffect(() => {
     dispatch(initializeCountries()).then(() => dispatch(setIsLoading(false)));
   }, [dispatch]);
-
-  //   const countries = useSelector((state) =>
-  //     state.search === ""
-  //       ? state.countries
-  //       : state.countries.filter((country) => {
-  //           return country.name.common
-  //             .toLowerCase()
-  //             .includes(state.search.toLowerCase());
-  //         })
-  //   );
 
   const countriesToShow = useSelector((state) => {
     if (state.search.length > 0) {
@@ -44,6 +44,23 @@ const Countries = () => {
     );
   });
 
+  const handleAddFavorites = (country) => {
+    // check if the country is already added to favorite list
+
+    const someResult = favorites.some(
+      (fav) => fav.name.common === country.name.common
+    );
+    if (someResult) {
+      // the country is already there
+      dispatch(removeFavorite(country));
+    } else {
+      dispatch(appendFavorite(country));
+      const copy = [...favorites, country];
+      dispatch(setFavorites(copy));
+      localStorage.setItem("favorites", JSON.stringify(copy));
+    }
+  };
+
   if (isLoading) {
     return <LoadingSpinner />;
   }
@@ -53,7 +70,7 @@ const Countries = () => {
       <Filter />
       <div className="cards">
         {countriesToShow.map((country, index) => (
-          <Link
+          <div
             className="card"
             key={index}
             to={`/countries/:${country.cca3}`}
@@ -62,6 +79,27 @@ const Countries = () => {
             <img src={country.flags.svg} />
             <div className="content">
               <h3 className="name">{country.name.common}</h3>
+              <span>
+                {favorites.some(
+                  (fav) => fav.name.common === country.name.common
+                ) ? (
+                  <Checkbox
+                    onChange={() => handleAddFavorites(country, index)}
+                    icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />}
+                    sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
+                    checked
+                  />
+                ) : (
+                  <Checkbox
+                    onChange={() => handleAddFavorites(country, index)}
+                    icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />}
+                    sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
+                    size="big"
+                  />
+                )}
+              </span>
               <div>
                 <span className="country-info">Population: </span>
                 <span className="population">{country.population}</span>
@@ -75,8 +113,14 @@ const Countries = () => {
                 <span className="country-info">Capital: </span>
                 <span className="capital">{country.capital}</span>
               </div>
+              <Link
+                to={`/countries/:${country.cca3}`}
+                state={{ countries: countries, country: country }}
+              >
+                See more
+              </Link>
             </div>
-          </Link>
+          </div>
         ))}
       </div>
     </div>
