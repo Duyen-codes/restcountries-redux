@@ -14,7 +14,12 @@ export const countriesSlice = createSlice({
 export const initializeCountries = () => {
   return async (dispatch) => {
     const countries = await countryService.getAll();
-    dispatch(setCountries(countries));
+
+    const sortedCountries = await countries.sort((a, b) =>
+      a.name.common.localeCompare(b.name.common)
+    );
+
+    dispatch(setCountries(sortedCountries));
   };
 };
 

@@ -18,10 +18,12 @@ Live demo: [https://restcountries-redux.vercel.app/ ](https://restcountries-redu
 
 ## Built with
 
-- React hooks
-- Redux
+- React hooks (useEffect, useLocation)
+- Redux toolkit, Redux thunk
 - CSS modules
 - Responsive design
+- Grid
+- Material UI
 
 ## Useful Resources
 

@@ -1,11 +1,18 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./Favorites.module.css";
 import { Link } from "react-router-dom";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+import { Button } from "@mui/material";
+
+import { addFavorite, removeFavorite } from "../reducers/favoritesReducer";
 
 const Favorites = () => {
-  const favorites = useSelector((state) => state.favorites);
+  const dispatch = useDispatch();
 
+  const favorites = useSelector((state) => state.favorites);
   const countries = useSelector((state) => state.countries);
 
   return (
@@ -22,6 +29,27 @@ const Favorites = () => {
             <img src={country.flags.svg} />
             <div className="content">
               <h3 className="name">{country.name.common}</h3>
+              <span>
+                {favorites.some(
+                  (fav) => fav.name.common === country.name.common
+                ) ? (
+                  <Checkbox
+                    onChange={() => dispatch(removeFavorite(country))}
+                    icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />}
+                    sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
+                    checked
+                  />
+                ) : (
+                  <Checkbox
+                    onChange={() => dispatch(addFavorite(favorites, country))}
+                    icon={<FavoriteBorder />}
+                    checkedIcon={<Favorite />}
+                    sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
+                    size="big"
+                  />
+                )}
+              </span>
               <div>
                 <span className="country-info">Population: </span>
                 <span className="population">{country.population}</span>
@@ -36,12 +64,14 @@ const Favorites = () => {
                 <span className="capital">{country.capital}</span>
               </div>
 
-              <Link
-                to={`/countries/:${country.cca3}`}
-                state={{ countries: countries, country: country }}
-              >
-                See more
-              </Link>
+              <Button variant="contained" size="large" mt={2}>
+                <Link
+                  to={`/countries/:${country.cca3}`}
+                  state={{ countries: countries, country: country }}
+                >
+                  See more
+                </Link>
+              </Button>
             </div>
           </div>
         ))}

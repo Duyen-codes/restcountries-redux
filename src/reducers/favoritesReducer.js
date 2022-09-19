@@ -27,4 +27,13 @@ export const cartSlice = createSlice({
 
 export const { appendFavorite, setFavorites, removeFavorite } =
   cartSlice.actions;
+
+export const addFavorite = (favorites, country) => {
+  return (dispatch) => {
+    dispatch(appendFavorite(country));
+    const copiedFavorites = [...favorites, country];
+    dispatch(setFavorites(copiedFavorites));
+    localStorage.setItem("favorites", JSON.stringify(copiedFavorites));
+  };
+};
 export default cartSlice.reducer;

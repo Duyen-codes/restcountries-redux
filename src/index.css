@@ -60,10 +60,6 @@ a {
   color: var(--clr-text);
 }
 
-a:hover {
-  text-decoration: underline;
-}
-
 .app-body {
   background-color: var(--clr-body-background);
   min-height: 100vh;
@@ -75,15 +71,14 @@ button {
 }
 
 /* Cards  style with grid */
-/* .cards {  */
-/* display: grid;  */
-/* Note auto-fill instead of auto-fit to prevent 1 card to stretch all the screen on search */
-/* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 3rem;
   place-content: center;
   padding: 4rem 5rem 0;
-  margin: 0 auto;  */
-/* } */
+  margin: 0 auto;
+}
 
 .card {
   background: var(--clr-card-background);
@@ -92,26 +87,26 @@ button {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2.5rem;
   color: var(--clr-text);
   transition: all 0.5s ease;
 }
 
 /* implement cards style responsive with flex  */
 
-.cards {
+/* .cards {
   padding: 4rem 5rem 0;
   display: flex;
   gap: 3rem;
   flex-wrap: wrap;
   color: var(--clr-text);
-}
+} */
 
-.cards > * {
-  flex: 1 0 auto; /* flex-grow: 1, flex-shrink:0,flex-basis: auto */
-  width: 30rem; /* if width > max-width, use max-width */
+/* .cards > * {
+  flex: 1 0 auto;
+  width: 30rem;
   max-width: 100%;
-}
+} */
 
 .card:hover {
   box-shadow: rgba(240, 46, 170, 0.4) -5px 5px,

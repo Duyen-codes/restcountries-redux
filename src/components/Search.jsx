@@ -16,7 +16,6 @@ const Search = () => {
 
   const handleCancelSearch = async (event) => {
     dispatch(initializeCountries(countries));
-    console.log("cancel search");
     dispatch(handleSearch(""));
   };
 
@@ -28,6 +27,7 @@ const Search = () => {
         onChange={handleChange}
         name="search"
         placeholder="search..."
+        value={search}
       />
       {search.length > 0 && (
         <ClearIcon onClick={handleCancelSearch} fontSize="large" />

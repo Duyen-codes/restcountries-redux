@@ -9,15 +9,12 @@ import Filter from "./Filter";
 import LoadingSpinner from "./LoadingSpinner";
 import classes from "./Countries.module.css";
 
-import {
-  setFavorites,
-  appendFavorite,
-  removeFavorite,
-} from "../reducers/favoritesReducer";
+import { addFavorite, removeFavorite } from "../reducers/favoritesReducer";
 
 import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
+import { Button } from "@mui/material";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -25,6 +22,7 @@ const Countries = () => {
   const isLoading = useSelector((state) => state.isLoading);
   const countries = useSelector((state) => state.countries);
   const favorites = useSelector((state) => state.favorites);
+
   useEffect(() => {
     dispatch(initializeCountries()).then(() => dispatch(setIsLoading(false)));
   }, [dispatch]);
@@ -43,23 +41,6 @@ const Countries = () => {
       country.continents[0].toLowerCase().includes(state.filter.toLowerCase())
     );
   });
-
-  const handleAddFavorites = (country) => {
-    // check if the country is already added to favorite list
-
-    const someResult = favorites.some(
-      (fav) => fav.name.common === country.name.common
-    );
-    if (someResult) {
-      // the country is already there
-      dispatch(removeFavorite(country));
-    } else {
-      dispatch(appendFavorite(country));
-      const copy = [...favorites, country];
-      dispatch(setFavorites(copy));
-      localStorage.setItem("favorites", JSON.stringify(copy));
-    }
-  };
 
   if (isLoading) {
     return <LoadingSpinner />;
@@ -84,7 +65,7 @@ const Countries = () => {
                   (fav) => fav.name.common === country.name.common
                 ) ? (
                   <Checkbox
-                    onChange={() => handleAddFavorites(country, index)}
+                    onChange={() => dispatch(removeFavorite(country))}
                     icon={<FavoriteBorder />}
                     checkedIcon={<Favorite />}
                     sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
@@ -92,11 +73,12 @@ const Countries = () => {
                   />
                 ) : (
                   <Checkbox
-                    onChange={() => handleAddFavorites(country, index)}
+                    onChange={() => dispatch(addFavorite(favorites, country))}
                     icon={<FavoriteBorder />}
                     checkedIcon={<Favorite />}
                     sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
                     size="big"
+                    checked={false}
                   />
                 )}
               </span>
@@ -113,12 +95,14 @@ const Countries = () => {
                 <span className="country-info">Capital: </span>
                 <span className="capital">{country.capital}</span>
               </div>
-              <Link
-                to={`/countries/:${country.cca3}`}
-                state={{ countries: countries, country: country }}
-              >
-                See more
-              </Link>
+              <Button variant="contained" size="large" mt={2}>
+                <Link
+                  to={`/countries/:${country.cca3}`}
+                  state={{ countries: countries, country: country }}
+                >
+                  See more
+                </Link>
+              </Button>
             </div>
           </div>
         ))}
