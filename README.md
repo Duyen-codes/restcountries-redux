@@ -1,4 +1,4 @@
-# REST API (countries and weather) app with REDUX
+# REST API (countries and weather) app with ReactJS and Redux
 
 This project is integrate with the REST Countries and OpenWeather API to pull country data and display it.
 
