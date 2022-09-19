@@ -18,7 +18,7 @@ const Nav = (props) => {
           <NavLink to="/favorites">
             Favorites{" "}
             <span>
-              ( {props.favorites.length > 0 ? props.favorites.length : ""})
+              {props.favorites.length > 0 ? props.favorites.length : ""}
             </span>
           </NavLink>
         </li>
