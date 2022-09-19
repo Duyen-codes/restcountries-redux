@@ -95,7 +95,11 @@ const Countries = () => {
                 <span className="country-info">Capital: </span>
                 <span className="capital">{country.capital}</span>
               </div>
-              <Button variant="contained" size="large" mt={2}>
+              <Button
+                variant="contained"
+                size="large"
+                sx={{ marginTop: "1rem" }}
+              >
                 <Link
                   to={`/countries/:${country.cca3}`}
                   state={{ countries: countries, country: country }}
