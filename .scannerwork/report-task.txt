@@ -1,0 +1,6 @@
+projectKey=restcountries_redux
+serverUrl=http://localhost:8084
+serverVersion=8.7.1.42226
+dashboardUrl=http://localhost:8084/dashboard?id=restcountries_redux
+ceTaskId=AYNZ-ON9Aj__8IdUIl_P
+ceTaskUrl=http://localhost:8084/api/ce/task?id=AYNZ-ON9Aj__8IdUIl_P
