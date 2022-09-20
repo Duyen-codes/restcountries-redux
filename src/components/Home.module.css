@@ -46,12 +46,12 @@
 }
 
 .home a {
-  display: inline-block;
   border-radius: 50%;
   height: 150px;
   width: 150px;
   background: white;
   color: black;
+  display: grid;
   place-items: center;
   text-transform: uppercase;
   transition: all 0.5s ease-in-out;
