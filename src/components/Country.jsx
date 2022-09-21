@@ -33,7 +33,7 @@ const Country = () => {
   const navigate = useNavigate();
 
   const backToPrevious = () => {
-    navigate("/countries");
+    navigate(-1);
   };
 
   const handleCountryChange = (borderCountryClicked) => {
