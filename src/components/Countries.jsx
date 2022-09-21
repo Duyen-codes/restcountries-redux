@@ -67,7 +67,7 @@ const Countries = () => {
                   <Checkbox
                     onChange={() => dispatch(removeFavorite(country))}
                     icon={<FavoriteBorder />}
-                    checkedIcon={<Favorite sx={{ color: "red" }} />}
+                    checkedIcon={<Favorite />}
                     sx={{ "& .MuiSvgIcon-root": { fontSize: 25 } }}
                     checked
                   />
