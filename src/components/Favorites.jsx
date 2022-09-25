@@ -26,7 +26,7 @@ const Favorites = () => {
             to={`/countries/:${country.cca3}`}
             state={{ countries: countries, country: country }}
           >
-            <img src={country.flags.svg} />
+            <img src={country.flags.svg} alt={`${country.name.common} flag`} />
             <div className="content">
               <h3 className="name">{country.name.common}</h3>
               <span>

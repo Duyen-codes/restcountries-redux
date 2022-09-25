@@ -37,9 +37,12 @@ const Countries = () => {
     } else if (state.filter === "" || state.filter === "all") {
       return state.countries;
     }
-    return state.countries.filter((country) =>
-      country.continents[0].toLowerCase().includes(state.filter.toLowerCase())
-    );
+    return state.countries.filter((country) => {
+      console.log("country: ", country);
+      return country.continents[0]
+        .toLowerCase()
+        .includes(state.filter.toLowerCase());
+    });
   });
 
   if (isLoading) {
@@ -57,7 +60,7 @@ const Countries = () => {
             to={`/countries/:${country.cca3}`}
             state={{ countries: countries, country: country }}
           >
-            <img src={country.flags.svg} />
+            <img src={country.flags.svg} alt={`${country.name.common} flag`} />
             <div className="content">
               <h3 className="name">{country.name.common}</h3>
               <span>

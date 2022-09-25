@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import classes from "./Nav.module.css";
 import logoIcon from "../assets/shared/logo.svg";
 

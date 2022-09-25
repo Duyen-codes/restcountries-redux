@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { handleSearch } from "../reducers/searchReducer";
 
 const api_key = process.env.REACT_APP_API_KEY;
 
@@ -56,10 +55,7 @@ const Country = () => {
             <div className="content-middle-left">
               <div>
                 <span className="native-name country-info">Native Name: </span>
-                <span>
-                  {country?.name?.nativeName?.eng?.official ||
-                    country?.name?.nativeName?.ara?.official}
-                </span>
+                <span>{country?.name?.official || country?.name?.common}</span>
               </div>
               <div>
                 <span className="population country-info">Population: </span>
@@ -75,7 +71,7 @@ const Country = () => {
               </div>
               <div>
                 <span className="capital country-info">Capital: </span>
-                <span>{country?.capital[0]}</span>
+                <span>{country?.capital}</span>
               </div>
               <a href={country?.maps.googleMaps}>{country?.maps.googleMaps}</a>
             </div>
@@ -133,7 +129,7 @@ const Country = () => {
         </div>
         {/************  Weather  *************/}
         <div>
-          <h2>Weather in {country?.capital[0]}</h2>
+          <h2>Weather in {country?.capital}</h2>
           <p>Temperature: {weather?.main?.temp} °C</p>
           <p>Weather description: {weather?.weather?.[0]?.description}</p>
           <img
