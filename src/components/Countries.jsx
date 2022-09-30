@@ -15,6 +15,7 @@ import Checkbox from "@mui/material/Checkbox";
 import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import { Button } from "@mui/material";
+import ScrollToTop from "./ScrollToTop";
 
 const Countries = () => {
   const dispatch = useDispatch();
@@ -114,6 +115,7 @@ const Countries = () => {
           </div>
         ))}
       </div>
+      <ScrollToTop />
     </div>
   );
 };
