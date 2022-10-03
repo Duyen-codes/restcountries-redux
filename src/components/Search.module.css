@@ -10,11 +10,16 @@
   border-radius: 0.5rem;
 }
 
+.search:focus-within {
+  border: 1px solid #e0ccff;
+}
+
 .search input {
   border: none;
   outline: none;
   font-size: 1.8rem;
   padding: 2rem 0 2rem 1rem;
+  height: 100%;
   border-radius: 1rem;
   width: 100%;
   background: var(--clr-card-background);

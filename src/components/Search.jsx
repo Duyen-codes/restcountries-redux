@@ -5,6 +5,8 @@ import { initializeCountries } from "../reducers/countryReducer";
 import classes from "./Search.module.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ClearIcon from "@mui/icons-material/Clear";
+import { IconButton } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
 
 const Search = () => {
   const dispatch = useDispatch();
@@ -30,7 +32,11 @@ const Search = () => {
         value={search}
       />
       {search.length > 0 && (
-        <ClearIcon onClick={handleCancelSearch} fontSize="large" />
+        <Tooltip title="cancel search">
+          <IconButton onClick={handleCancelSearch} sx={{ color: "white" }}>
+            <ClearIcon fontSize="large" />
+          </IconButton>
+        </Tooltip>
       )}
     </div>
   );
