@@ -1,5 +1,7 @@
 # REST API (countries and weather) app with ReactJS and Redux
+
 [![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-white.svg)](https://sonarcloud.io/summary/new_code?id=Duyen-codes_restcountries-redux)
+
 This project is integrate with the REST Countries and OpenWeather API to pull country data and display it.
 
 Live demo: [https://restcountries-redux.vercel.app/ ](https://restcountries-redux.vercel.app/)
