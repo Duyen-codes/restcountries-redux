@@ -8,7 +8,7 @@ Live demo: [https://restcountries-redux.vercel.app/ ](https://restcountries-redu
 
 ## Description
 
-### functionalities implemented include:
+### Functionalities implemented include:
 
 - See all countries from the API on the countries page
 - Search for a country by typing into input field
