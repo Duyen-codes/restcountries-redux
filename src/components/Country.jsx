@@ -93,10 +93,6 @@ const Country = () => {
 
               <div>
                 <span className="language country-info">Languages: </span>
-                {/* {languages &&
-                  Object.values(languages).map((val, index) => {
-                    return <span key={index}>{val}</span>;
-                  })} */}
                 {languages &&
                   Object.values(languages)
                     .map((val) => val)
